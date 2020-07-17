@@ -49,13 +49,13 @@ f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure
 
-#  filler = []
-# # while len(names_1):
-#     # filler.append(names_1.pop())
-#     # filler.append(names_2.pop())
-#     # filler.sort()
-# names_1.sort()
-# names_2.sort()
+ filler = []
+# while len(names_1):
+    # filler.append(names_1.pop())
+    # filler.append(names_2.pop())
+    # filler.sort()
+names_1.sort()
+names_2.sort()
 
 
 def sortnapp(lis):
