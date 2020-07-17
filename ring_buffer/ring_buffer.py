@@ -1,9 +1,10 @@
 class RingBuffer:
     def __init__(self, capacity):
-        pass
+        self.capacity = capacity
+        self.items = []
 
     def append(self, item):
-        pass
+        self.items.insert(self.capacity, item)
 
     def get(self):
-        pass
+        return self.items
