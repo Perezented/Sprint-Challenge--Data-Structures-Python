@@ -1,18 +1,7 @@
 import time
+from collections import deque
 
-start_time = time.time()
 
-f = open('names_1.txt', 'r')
-names_1 = f.read().split("\n")  # List containing 10000 names
-f.close()
-
-f = open('names_2.txt', 'r')
-names_2 = f.read().split("\n")  # List containing 10000 names
-f.close()
-
-duplicates = []  # Return the list of duplicates in this data structure
-
-# Replace the nested for loops below with your improvements
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -48,28 +37,82 @@ class BSTNode:
     # Return True if the tree contains the value
     # False if it does not
 
-    def contains(self, target):
-        return self._search(target, self)
+start_time = time.time()
 
-    def _search(self, target, currentNode):
-        # if the current node is the target
-        if target == currentNode.value:
-            # return True
-            return True
-            # else if the target is less then the current node and there is a left node
-        elif target < currentNode.value and currentNode.left is not None:
-            # return this search on the target and left Node
-            return self._search(target, currentNode.left)
-            # else if the target is more then the current node and there is a right node
-        elif target > currentNode.value and currentNode.right is not None:
-            # return this search on the target and right Node
-            return self._search(target, currentNode.right)
+f = open('names_1.txt', 'r')
+names_1 = f.read().split("\n")  # List containing 10000 names
+f.close()
+
+f = open('names_2.txt', 'r')
+names_2 = f.read().split("\n")  # List containing 10000 names
+f.close()
+
+duplicates = []  # Return the list of duplicates in this data structure
+
+#  filler = []
+# # while len(names_1):
+#     # filler.append(names_1.pop())
+#     # filler.append(names_2.pop())
+#     # filler.sort()
+# names_1.sort()
+# names_2.sort()
 
 
-for n1 in names_1:
-    BSTNode.insert(n1)
-for n2 in names_2:
-    BSTNode.insert(n2)
+def sortnapp(lis):
+    while len(lis):
+        n1 = lis.pop()
+        if len(lis) > 1:
+            if n1 == lis[-1]:
+                None
+            else:
+                filler.append(n1)
+
+
+sortnapp(names_1)
+sortnapp(names_2)
+filler.sort()
+
+while len(filler):
+    current = filler.pop()
+    if len(filler) > 1:
+        last = filler[-1]
+
+        print(last)
+        if str(current) == str(last):
+            duplicates.append(current)
+
+
+
+
+
+
+####################
+# for name2 in names_2:
+#     while len(names_1) > 0:
+#         current = names_1.pop()
+#         if current == name2:
+#             duplicates.append(current)
+######################
+# filler = []
+# for name1 in names_1:
+#     filler.append(name1)
+#     while len(filler) > 0:
+#         current = filler.pop()
+#         for name2 in names_2:
+#             if name2 == current:
+#                 duplicates.append(current)
+#             else:
+#                 None
+########################
+# while len(names_1) > 0:
+#     n1 = names_1.pop()
+#     for n2 in names_2:
+#         if n1 == n2:
+#             duplicates.append(n1)
+# names_1.extend(names_2)
+####################
+# Replace the nested for loops below with your improvements
+################
 # for name_1 in names_1:
 #     for name_2 in names_2:
 #         if name_1 == name_2:
